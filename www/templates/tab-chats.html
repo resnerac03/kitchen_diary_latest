@@ -1,0 +1,30 @@
+<ion-view view-title="Recipes">
+  <ion-content>
+    <ion-list>
+      <ion-item   class="item-remove-animate item-avatar item-icon-right" ng-repeat="recipe in recipeData | orderBy: orderName" type="item-text-wrap" href="#/tab/chats/{{recipe.recipeName}}">
+      <!-- href="#/tab/chats/{{chat.id}}" -->
+        
+        <img ng-src="{{recipe.imagePath}}">
+        <h2>{{recipe.recipeName}}</h2>
+        <p>{{recipe.notes}}</p>
+        
+        <ion-option-button class="button-assertive" ng-click="deleteRecipe({{recipe.id}},$index)">
+          Delete
+        </ion-option-button>
+
+      </ion-item>
+    </ion-list>
+    <center><p ng-show="recipeData<1">Add a recipe now!</p></center>
+  </ion-content>
+  
+  <div id="container-floating" >
+    <div id="add-floating-button" ng-click="addRecipe()">
+      <p class="plus">+</p>
+    </div>
+
+    <div id="sort-floating-button" ng-show="recipeData.length>1" ng-click="sortbyName()">
+      <p class="sort">abc</p>
+    </div>
+
+  </div>
+</ion-view>

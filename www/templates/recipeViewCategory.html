@@ -1,0 +1,68 @@
+<ion-view cache-view="false">
+  <ion-content class="padding">
+    <ion-list>
+    	<div class="row">
+            <div class="center-block">
+                <img ng-src="{{recipeImage}}">
+        	   <h2>{{recipeNameView}}</h2>
+        	   <p>{{categoryName}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center-block">
+            	<button class="btn btn-success" ng-click="editRecipe()">Edit</button>
+                <button class="btn btn-primary ion-flash" ng-click="shareAnySocial(recipeNameView,recipeImage)"></button>
+            </div>
+        </div>
+    	<div class="container-fluid">
+            <div class="row">
+            	<table class="table table-striped">
+            		<tr>
+            			<th class="text-center"><b>Name</b></th>
+            		</tr>
+            		<tr ng-repeat="ingredient in recipeIngredient">
+            			<th class="text-center">{{ingredient.ingredientsName}}</th>
+            		</tr>
+            	</table>
+              </div>
+
+            <div class="row">
+                    <table class="table table-striped">
+                        <tr>
+                            <th><b>HouseHold</b></th>
+                            <th><b>Weighted</b></th>
+                            <th></th>
+                        </tr>
+                        <tr ng-repeat="ingredient in recipeIngredient">
+                            <th>{{ingredient.household}}</th>
+                            <th>{{ingredient.weighted}}</th>
+                            <th><button class="remove btn btn-danger btn-sm" ng-click="removeFields($index,ingredient.ingredientsName)">-</button></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+    	
+
+            <div class="row">
+                <div class="col-md-6">
+                   <h3>Procedure</h3>
+                  <ion-list>
+                    <li ng-repeat="proc in recipeProcedure"><button class="remove btn btn-danger btn-sm" ng-click="removeProcFields($index,proc.id)">-</button> {{proc.procedureDetail}}<br><br></li>
+                  </ion-list>
+                </div>
+            </div>        
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Notes</h3>
+                    <ion-list>
+                        <li ng-repeat="note in recipeDetail">{{note.notes}}</li>
+                    </ion-list>
+                </div>
+            </div>
+
+    	</div>
+    </ion-list>
+  </ion-content>
+</ion-view>  

@@ -1,0 +1,33 @@
+<ion-view view-title="Category">
+
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="category in categoryData | orderBy: orderName" type="item-text-wrap" href="#/tab/dash/{{category.categoryName}}">
+        <!-- <img ng-src="{{chat.face}}"> -->
+        <input type="hidden" name="catID">
+        <h2 >{{category.categoryName}}</h2>
+        <!-- <p>{{chat.lastText}}</p> -->
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="deleteCategory({{category.id}},$index)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+
+
+    <center><p ng-show="categoryData<1">Add category now!</p></center>
+    
+  </ion-content>
+
+  <div id="container-floating" >
+    <div id="add-floating-button" ng-click="openModal()">
+      <p class="plus">+</p>
+    </div>
+
+    <div id="sort-floating-button" ng-show="categoryData.length>1" ng-click="sortbyName1()">
+      <p class="sort">abc</p>
+    </div>
+  </div>
+</ion-view>

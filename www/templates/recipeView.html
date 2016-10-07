@@ -1,0 +1,73 @@
+<ion-view cache-view="false" title="{{recipeNameView}}">
+  <ion-content>
+    <ion-list>
+    	 <div class="row ">
+            <div class="center-block">
+            <img ng-src="{{recipeImage}}">
+        	<h2>{{recipeNameView}}</h2>
+        	<p>{{categoryName}}</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="center-block">
+        	   <button class="btn btn-success ion-edit" ng-click="editRecipe()"></button>
+
+               <button class="btn btn-primary ion-flash" ng-click="shareAnySocial(recipeNameView,recipeImage)"></button>
+            </div>
+    	</div>
+        <br><br>
+    	<div class="container-fluid">
+            <div class="row">
+            		<table class="table table-striped">
+            			<tr>
+            				<th class="text-center"><b>Name</b></th>
+            				<!-- <th><b>HouseHold</b></th>
+            				<th><b>Weighted</b></th>
+                            <th><b></b></th> -->
+            			</tr>
+            			<tr ng-repeat=" ingredient in recipeIngredient">
+            				<th class="text-center">{{ingredient.ingredientsName}}</th>
+            				<!-- <th>{{ingredient.household}}</th>
+            				<th>{{ingredient.weighted}}</th>
+                            <th><button class="remove btn btn-danger btn-sm" ng-click="removeFields($index,ingredient.ingredientsName)">-</button></th> -->
+            			</tr>
+            		</table>
+
+            
+
+            </div>
+
+            <div class="row">
+                <table class="table table-striped">
+                    <tr>
+                            <!-- <th class="text-center"><b>Name</b></th> -->
+                            <th><b>HouseHold</b></th>
+                            <th><b>Weighted</b></th>
+                            <th><b></b></th>
+                        </tr>
+                        <tr ng-repeat=" ingredient in recipeIngredient">
+                            <!-- <th class="text-center">{{ingredient.ingredientsName}}</th> -->
+                            <th>{{ingredient.household}}</th>
+                            <th>{{ingredient.weighted}}</th>
+                            <th><button class="remove btn btn-danger btn-sm" ng-click="removeFields($index,ingredient.ingredientsName)">-</button></th>
+                        </tr>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+            	   <h3>Procedure</h3>
+        	      <ion-list>
+        	       	<li class="addpadding" ng-repeat="proc in recipeProcedure"><button class="remove btn btn-danger btn-sm" ng-click="removeProcFields($index,proc.id)">-</button>  {{proc.procedureDetail}} </li>
+        	      </ion-list>
+                </div>
+            </div>            
+	    	<h3>Notes</h3>
+	    		<ion-list>
+	    			<li ng-repeat="note in recipeDetail">{{note.notes}}</li>
+	    		</ion-list>
+
+    	</div>
+    </ion-list>
+  </ion-content>
+</ion-view>  
