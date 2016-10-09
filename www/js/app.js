@@ -162,10 +162,10 @@ app.controller("appCtrl",function($scope,$state, $ionicModal,$cordovaSQLite,$ion
         };
 
   $cordovaImagePicker.getPictures(options)
-    .then(function (results) {
+    .then(function (results, messsage) {
       for (var i = 0; i < results.length; i++) {
         $scope.imagePathtemp = results[i];
-
+        var message = "Message Added!"
       }
     }, function(error) {
       console.log(error);
@@ -211,7 +211,6 @@ app.controller("appCtrl",function($scope,$state, $ionicModal,$cordovaSQLite,$ion
         $scope.orderName = null;
     $scope.recipeData = [];
     $cordovaSQLite.execute(dbKitchen,"SELECT * from recipe3").then(function(result){
-
       if(result.rows.length){
 
         for(var i=0;i<result.rows.length;i++){
